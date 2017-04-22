@@ -1,0 +1,12 @@
+<form [formGroup]="_userForm" (ngSubmit)="onSubmit()">
+<input type="text" name="name" formControlName="name">
+<input type="text" name="email" [formControl]="_userForm.controls['email']">
+<input type="text" name="posts" [formControl]="_userForm.controls['posts']">
+<div *ngIf="!_userForm.controls['email'].valid">Invalid Email Address</div>
+<div></div>
+<div></div>
+<div>
+<button type="submit" [disabled]="!_userForm.valid">Submit</button>
+<button (click)="getData()">Get Data</button>
+</div>
+</form>
